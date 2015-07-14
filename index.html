@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>wavesurfer.js</title>
+
+        <link href="data:image/gif;" rel="icon" type="image/x-icon" />
+
+        <!-- Bootstrap -->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css" />
+
+
+        <!-- wavesurfer.js -->
+        <script src="js/wavesurfer.js"></script>
+        <script src="js/webaudio.js"></script>
+        <script src="js/webaudio.buffer.js"></script>
+        <script src="js/webaudio.media.js"></script>
+        <script src="js/audioelement.js"></script>
+        <script src="js/drawer.js"></script>
+        <script src="js/drawer.canvas.js"></script>
+        <script src="js/recorder.js"></script>
+        <script src="js/app.js"></script>
+        <!-- // <script src="js/main.js"></script> -->
+
+        <!-- Demo -->
+
+    </head>
+
+    <body itemscope itemtype="http://schema.org/WebApplication">
+        <div class="container">
+            <div class="header">
+                <noindex>
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="?fill">Fill</a></li>
+                    <li><a href="?scroll">Scroll</a></li>
+                    <li><a href="?normalize">Normalize</a></li>
+                </ul>
+                </noindex>
+
+                <h1 itemprop="name">wavesurfer.js</h1>
+            </div>
+
+            <div id="demo">
+                <div id="waveform">
+                    <div class="progress progress-striped active" id="progress-bar">
+                        <div class="progress-bar progress-bar-info"></div>
+                    </div>
+
+                    <!-- Here be the waveform -->
+                </div>
+                <div id="waveform2">
+                    <div class="progress progress-striped active" id="progress-bar">
+                        <div class="progress-bar progress-bar-info"></div>
+                    </div>
+
+                    <!-- Here be the waveform -->
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-primary" onclick="startRecording(this);">
+                        <i class="glyphicon glyphicon-record"></i>
+                        Record
+                    </button>
+                    <button class="btn btn-primary" onclick="stopRecording(this);">
+                        <i class="glyphicon glyphicon-stop"></i>
+                        Stop
+                    </button>
+
+
+                </div>
+            </div>
+
+            <div class="row">
+              <h2>Recordings</h2>
+              <ul id="recordingslist"></ul>
+            </div>
+          <div class="row">
+            <h2>Log</h2>
+            <pre id="log"></pre>
+          </div>
+
+            <p class="lead pull-center" id="drop">
+                Drag'n'drop your favorite
+                <i class="glyphicon glyphicon-music"></i>-file
+                here!
+            </p>
+
+
+
+
+
+        </div>
+
+
+    </body>
+</html>
