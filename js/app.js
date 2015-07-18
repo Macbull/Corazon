@@ -5,6 +5,7 @@ var audio_context;
 var recorder;
 var input;
 var micstream;
+var levelchecker;
 
 var wavesurfer = Object.create(WaveSurfer);
 function waveinit(){
@@ -60,12 +61,11 @@ function reloadBuffer(event){
   wavesurfer.loadDecodedBuffer(event.inputBuffer);
 }
 function stopMic(){
-	micstream.stop();
+	input.disconnect();
+	levelchecker.disconnect();
 }
 function startMic(){
-	navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-		__log('No live audio input: ' + e);
-	});
+	wavemic(input);
 }
 function startUserMedia(stream) {
 	micstream = stream;
@@ -125,6 +125,9 @@ window.onload = function init() {
 		audio_context = new AudioContext;
 		__log('Audio context set up.');
 		__log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+		navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+		__log('No live audio input: ' + e);
+	});
 	} catch (e) {
 		alert('No web audio support in this browser!');
 	}
