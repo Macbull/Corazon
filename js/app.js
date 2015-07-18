@@ -18,14 +18,8 @@ function waveinit(){
 			audioContext : audio_context
 	};
 
-	if (location.search.match('scroll')) {
-			options.minPxPerSec = 100;
-			options.scrollParent = true;
-	}
-
-	if (location.search.match('normalize')) {
 			options.normalize = true;
-	}
+
 
 	/* Progress bar */
 	(function () {
