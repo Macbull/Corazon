@@ -69,7 +69,6 @@ function stopMic(){
 	micstream.stop();
 }
 function startMic(){
-	wavesurfer.clear();
 	navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
 		__log('No live audio input: ' + e);
 	});
