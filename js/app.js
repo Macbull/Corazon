@@ -4,6 +4,8 @@ function __log(e, data) {
 var audio_context;
 var recorder;
 var input;
+var micstream;
+
 var wavesurfer = Object.create(WaveSurfer);
 function waveinit(){
 	var options = {
@@ -63,8 +65,18 @@ function reloadBuffer(event){
 	wavesurfer.empty();
   wavesurfer.loadDecodedBuffer(event.inputBuffer);
 }
+function stopMic(){
+	micstream.stop();
+}
+function startMic(){
+	wavesurfer.clear();
+	navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+		__log('No live audio input: ' + e);
+	});
+}
 function startUserMedia(stream) {
-	input = audio_context.createMediaStreamSource(stream);
+	micstream = stream;
+	input = audio_context.createMediaStreamSource(micstream);
 	__log('Media stream created.');
 	waveinit();
 	wavemic(input);
@@ -124,7 +136,5 @@ window.onload = function init() {
 		alert('No web audio support in this browser!');
 	}
 
-	navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-		__log('No live audio input: ' + e);
-	});
+
 };
