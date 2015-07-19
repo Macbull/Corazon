@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
-
+        <script type ="text/javascript" src="js/parser.js"></script>
 
         <!-- wavesurfer.js -->
         <script src="js/wavesurfer.js"></script>
@@ -95,16 +95,16 @@
                             </div>
 
                             <div class="input-field col m12">
-                              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                              <label for="last_name">Last Name</label>
+                              <input placeholder="Placeholder" id="aadhar" type="text" class="validate">
+                              <label for="aadhar_number">Aadhar Number</label>
                             </div>
 
                             <div class="input-field col m12">
-                              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                              <input placeholder="Placeholder" id="contact" type="text" class="validate">
                               <label for="contact">Contact Number</label>
                             </div>
                         </form>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <button class="btn waves-effect waves-light" type="submit" name="action" onClick="validate()">Submit
                                 <i class="material-icons">send</i>
                             </button>
                     </div>
